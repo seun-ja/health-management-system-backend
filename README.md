@@ -115,3 +115,7 @@ response
   "date": "2025-10-22 14:30:00"
 }
 ```
+
+## Questions & Contribution
+
+This project is open source and welcomes contributions from the community. If you have any questions or suggestions, please feel free to open an issue or submit a pull request or send an email to hello@oluseun.dev.
