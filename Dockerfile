@@ -4,6 +4,7 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y pkg-config libssl-dev
 COPY . .
 RUN cargo install sqlx-cli --no-default-features --features postgres
+ENV SQLX_OFFLINE=true
 RUN cargo build --release
 
 FROM debian:bookworm-slim

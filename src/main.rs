@@ -4,6 +4,7 @@ use axum::{
     Router,
     routing::{get, post},
 };
+use dotenv::dotenv;
 use health_mgt_system::{
     AppState,
     routes::{
@@ -17,9 +18,10 @@ use tower_http::cors::{AllowHeaders, AllowMethods, AllowOrigin, CorsLayer};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let db_pool =
-        health_mgt_system::db::init_db("postgres://postgres:postgres@db:5432/atlantic-hall-clinic")
-            .await?;
+    dotenv().ok();
+
+    let db_url = std::env::var("DATABASE_URL").expect("DATABASE_URL must be set");
+    let db_pool = health_mgt_system::db::init_db(&db_url).await?;
 
     let app_state = AppState {
         pool: db_pool,

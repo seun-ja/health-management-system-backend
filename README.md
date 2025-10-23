@@ -16,6 +16,8 @@ Once done, you can run the following command from the root directory in your ter
 docker compose up --build
 ```
 
+This exposes our API to http://localhost:8080.
+
 ## Usage
 
 First we check it's working properly by running the following command in your terminal:
