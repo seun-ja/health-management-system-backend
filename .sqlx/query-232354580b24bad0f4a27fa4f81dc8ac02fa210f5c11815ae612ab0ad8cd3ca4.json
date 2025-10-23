@@ -1,0 +1,82 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        SELECT\n            id,\n            email,\n            first_name,\n            last_name,\n            age,\n            class,\n            gender,\n            alergies,\n            emergency_contact,\n            encrypted_password,\n            appointments\n        FROM patients\n        WHERE email = $1",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 1,
+        "name": "email",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 2,
+        "name": "first_name",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 3,
+        "name": "last_name",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 4,
+        "name": "age",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 5,
+        "name": "class",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 6,
+        "name": "gender",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 7,
+        "name": "alergies",
+        "type_info": "TextArray"
+      },
+      {
+        "ordinal": 8,
+        "name": "emergency_contact",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 9,
+        "name": "encrypted_password",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 10,
+        "name": "appointments",
+        "type_info": "TextArray"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Text"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true
+    ]
+  },
+  "hash": "232354580b24bad0f4a27fa4f81dc8ac02fa210f5c11815ae612ab0ad8cd3ca4"
+}

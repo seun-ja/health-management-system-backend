@@ -1,0 +1,59 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n            SELECT\n                id,\n                patient_id,\n                doctor_id,\n                date,\n                status as \"status: AppointmentStatus\"\n            FROM appointments\n            WHERE id = $1\n            ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 1,
+        "name": "patient_id",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 2,
+        "name": "doctor_id",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 3,
+        "name": "date",
+        "type_info": "Timestamp"
+      },
+      {
+        "ordinal": 4,
+        "name": "status: AppointmentStatus",
+        "type_info": {
+          "Custom": {
+            "name": "status",
+            "kind": {
+              "Enum": [
+                "pending",
+                "ongoing",
+                "cancelled",
+                "noshow",
+                "completed"
+              ]
+            }
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Text"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "hash": "6007b49e6791c9f9b0cc480c1d466202152a30ac353f22b3db9a6b3580f2f005"
+}

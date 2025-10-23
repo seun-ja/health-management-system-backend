@@ -1,0 +1,15 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        UPDATE patients\n        SET appointments = appointments || ARRAY[$2]\n        WHERE id = $1\n        ",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Text",
+        "Text"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "2853b2f1eb5ea5586052d45dd6b235036f06cf6ff2c74efb3a8fff2e72dcb792"
+}
