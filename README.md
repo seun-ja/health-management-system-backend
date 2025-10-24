@@ -8,6 +8,18 @@ It provides backend functionality serving as a bridge between the frontend and t
 
 ## Getting Started
 
+### Clone the repository
+
+Ensure you have `git` installed on your machine by running `git --version`. If you don't have `git` installed, you can download it from the official website [https://git-scm.com/downloads](https://git-scm.com/downloads).
+
+Clone the repository using this `git` command:
+
+```bash
+git clone https://github.com/seun-ja/health-management-system-backend
+```
+
+### Create Docker Image
+
 To get started, all you need is Docker. You can install Docker from the official website [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/).
 
 Once done, you can run the following command from the root directory in your terminal to start the application:
