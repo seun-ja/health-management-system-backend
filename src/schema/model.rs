@@ -2,7 +2,6 @@ use axum::{Json, http::StatusCode, response::IntoResponse};
 use chrono::NaiveDateTime;
 use serde::{Deserialize, Serialize};
 use sqlx::Type;
-use uuid::Uuid;
 
 use crate::{
     error::ApiError,
@@ -42,12 +41,13 @@ impl Patient {
     }
 }
 
-pub struct MedicalStaff {
-    pub id: Uuid,
+#[derive(Clone)]
+pub struct MedicalPersonnel {
+    pub id: String,
     pub email: String,
     pub first_name: String,
-    pub last_name: String,
-    pub specialization: String,
+    pub last_name: Option<String>,
+    pub specialization: Option<String>,
     pub encrypted_password: String,
     // TODO: Add availability
 }

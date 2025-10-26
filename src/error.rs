@@ -8,6 +8,8 @@ pub enum ApiError {
     InternalServer,
     #[error("Bad Request: {0}")]
     BadRequest(String),
+    #[error("Not Found: {0}")]
+    NotFound(String),
     #[error("Database error: {0}")]
     DatabaseError(#[from] sqlx::Error),
     #[error("Invalid JWT credentials: {0}")]
@@ -31,7 +33,9 @@ impl ApiError {
             | ApiError::WrongTimeStamp
             | ApiError::FailedHashingPassword(_)
             | ApiError::Other(_) => StatusCode::INTERNAL_SERVER_ERROR,
-            ApiError::BadRequest(_) | ApiError::InvalidPasswordHash(_) => StatusCode::BAD_REQUEST,
+            ApiError::BadRequest(_) | ApiError::InvalidPasswordHash(_) | ApiError::NotFound(_) => {
+                StatusCode::BAD_REQUEST
+            }
             ApiError::InvalidJWTCredentials(_) | ApiError::InvalidCredentials => {
                 StatusCode::UNAUTHORIZED
             }

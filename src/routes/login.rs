@@ -1,7 +1,7 @@
 use axum::{Json, extract::State, http::StatusCode, response::IntoResponse};
 use serde::{Deserialize, Serialize};
 
-use crate::{AppState, db::patient::get_patient, error::ApiError, routes::verify_password};
+use crate::{AppState, db::patient_db::get_patient, error::ApiError, routes::verify_password};
 
 pub async fn post_login(
     State(state): State<AppState>,
