@@ -114,7 +114,8 @@ request body:
 ```json
 {
   "patient_id": "019a1065-08f0-7c70-a487-7e3fc7d1d480",
-  "date": "2025-10-22 14:30:00"
+  "date": "2025-10-22 14:30:00",
+  "preferred_doctor_id": "059a1535-08f0-7c70-a445-7e3fc7d1d480" // <-- Optional
 }
 ```
 

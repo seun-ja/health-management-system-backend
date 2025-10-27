@@ -11,6 +11,7 @@ use health_mgt_system::{
         appointment::{create_appointment, get_appointment},
         health::ping_pong,
         login::post_login,
+        personnel::create_personnel,
         signup::post_signup,
     },
 };
@@ -34,6 +35,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .route("/signup", post(post_signup))
         .route("/appointment", post(create_appointment))
         .route("/appointment", get(get_appointment))
+        .route("/personnel", post(create_personnel)) // TODO: must have auth
         .with_state(app_state)
         .layer(
             CorsLayer::new()

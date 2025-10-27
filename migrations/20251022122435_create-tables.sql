@@ -14,10 +14,10 @@ CREATE TABLE patients (
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE doctors (
+CREATE TABLE medical_personnel (
     id TEXT PRIMARY KEY,
     email TEXT NOT NULL UNIQUE,
-    first_name TEXT NULL,
+    first_name TEXT NOT NULL,
     last_name TEXT NULL,
     specialization TEXT NULL,
     encrypted_password TEXT NOT NULL,

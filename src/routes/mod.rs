@@ -1,6 +1,7 @@
 pub mod appointment;
 pub mod health;
 pub mod login;
+pub mod personnel;
 pub mod signup;
 
 use argon2::{Argon2, PasswordHash, PasswordHasher, PasswordVerifier, password_hash::SaltString};

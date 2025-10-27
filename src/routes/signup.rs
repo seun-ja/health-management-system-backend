@@ -1,7 +1,7 @@
 use axum::{Json, extract::State};
 use serde::Deserialize;
 
-use crate::{AppState, db::patient::create_patient, error::ApiError, schema::model::Patient};
+use crate::{AppState, db::patient_db::create_patient, error::ApiError, schema::model::Patient};
 
 pub async fn post_signup(
     State(state): State<AppState>,
