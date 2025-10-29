@@ -1,13 +1,13 @@
 use axum::{Json, extract::State};
 use serde::Deserialize;
 
-use crate::{AppState, db::patient_db::create_patient, error::ApiError, schema::model::Patient};
+use crate::{AppState, db::patient_db::create_patient, error::ApiError};
 
 pub async fn post_signup(
     State(state): State<AppState>,
-    Json(request): Json<SignupRequest>,
+    Json(request): Json<PatientSignupRequest>,
 ) -> Result<Json<String>, ApiError> {
-    let patient = create_patient(&state.pool, Patient::from_request(request)?)
+    let patient = create_patient(&state.pool, request.try_into()?)
         .await
         .map_err(ApiError::from)?;
 
@@ -16,7 +16,7 @@ pub async fn post_signup(
 }
 
 #[derive(Debug, Clone, Deserialize)]
-pub struct SignupRequest {
+pub struct PatientSignupRequest {
     pub email: String,
     pub password: String,
     pub first_name: String,
